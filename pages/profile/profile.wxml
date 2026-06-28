@@ -1,22 +1,54 @@
-<view class="page">
-  <view class="profile-header">
-    <view class="avatar">{{userInfo.nickName[0] || 'P'}}</view>
-    <text class="nickname">{{userInfo.nickName}}</text>
+<view class="page-shell safe-bottom">
+  <view class="glass-card card-padding" style="margin-bottom: 24rpx;">
+    <view class="card-row">
+      <view class="profile-header">
+        <view class="avatar">{{userInfo.nickName[0] || 'P'}}</view>
+        <view>
+          <text class="section-title">{{userInfo.nickName}}</text>
+          <text class="muted-text">Command center profile</text>
+        </view>
+      </view>
+      <view class="badge badge-xp">Level 7</view>
+    </view>
+
+    <view style="margin-top: 22rpx;">
+      <text class="muted-text">XP Progress</text>
+      <view class="progress-bar" style="margin-top: 12rpx;">
+        <view class="progress-fill" style="width: 62%;"></view>
+      </view>
+    </view>
   </view>
 
   <view class="stats-grid">
-    <view class="stat-card">
+    <view class="glass-card stat-card">
       <text class="stat-value">{{stats.robotsOwned}}</text>
       <text class="stat-label">Robots</text>
     </view>
-    <view class="stat-card">
+    <view class="glass-card stat-card">
       <text class="stat-value">{{stats.tasksCompleted}}</text>
       <text class="stat-label">Tasks Done</text>
     </view>
-    <view class="stat-card">
+    <view class="glass-card stat-card">
       <text class="stat-value">{{stats.totalXp}}</text>
       <text class="stat-label">Total XP</text>
     </view>
+  </view>
+
+  <view class="glass-card card-padding" style="margin-top: 24rpx;">
+    <view class="section-title" style="font-size: 28rpx; margin-bottom: 18rpx;">Registered Devices</view>
+    <view class="device-list">
+      <view wx:for="{{devices}}" wx:key="id" class="device-row">
+        <text>{{item.name}}</text>
+        <text class="muted-text">{{item.status}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="glass-card card-padding" style="margin-top: 22rpx;">
+    <text class="section-title" style="font-size: 28rpx; margin-bottom: 18rpx;">Preferences</text>
+    <view class="setting-row"><text>Language</text><text class="muted-text">English</text></view>
+    <view class="setting-row"><text>Parental Lock</text><text class="muted-text">Enabled</text></view>
+    <view class="setting-row"><text>Support</text><text class="muted-text">Chat</text></view>
   </view>
 
   <custom-tab-bar />

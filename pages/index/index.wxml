@@ -1,39 +1,42 @@
-<view class="page">
-  <view class="header">
-    <view class="greeting">
-      <text class="greeting-label">Welcome back,</text>
-      <text class="greeting-name">{{userName}}</text>
+<view class="page-shell safe-bottom">
+  <view class="card glass-card card-padding">
+    <view class="card-row">
+      <view>
+        <text class="section-title">AI Toy Command</text>
+        <text class="muted-text">Your premium command center for robots, drones, and AI pets.</text>
+      </view>
+      <view class="badge badge-xp">XP {{xp}}</view>
     </view>
-    <view class="xp-card">
-      <view class="xp-header">
-        <text class="xp-label">XP Level</text>
-        <text class="xp-value">{{xp}} / {{xpMax}}</text>
-      </view>
-      <view class="xp-bar">
-        <view class="xp-fill" style="width: {{xpPercent}}%"></view>
-      </view>
+
+    <view class="card-row" style="margin-top: 24rpx; gap: 12rpx; flex-wrap: wrap;">
+      <view class="badge badge-online">Online: {{devices.length - 1}}</view>
+      <view class="badge badge-battery">Battery: 62%</view>
+      <view class="badge badge-offline">Standby: 1</view>
     </view>
   </view>
 
   <view class="section">
-    <text class="section-title">Your Robots</text>
-    <view class="robot-list">
+    <view class="card-row" style="margin-bottom: 18rpx;">
+      <text class="section-title">Active Devices</text>
+      <button class="btn btn-secondary" bindtap="goToControl">Manage</button>
+    </view>
+
+    <view class="device-grid">
       <view
-        wx:for="{{robots}}"
+        wx:for="{{devices}}"
         wx:key="id"
-        class="robot-card {{item.online ? 'online' : 'offline'}}"
+        class="glass-card device-card {{item.id === selectedDeviceId ? 'device-card-active' : ''}}"
         data-id="{{item.id}}"
-        bindtap="onRobotTap"
+        bindtap="onDeviceTap"
       >
-        <view class="robot-icon">{{item.icon}}</view>
-        <view class="robot-info">
-          <text class="robot-name">{{item.name}}</text>
-          <text class="robot-type">{{item.type}}</text>
+        <view class="device-chip {{item.status === 'Online' ? 'badge-online' : 'badge-offline'}}">{{item.status}}</view>
+        <view class="device-info">
+          <text class="device-name">{{item.name}}</text>
+          <text class="device-type">{{item.type}}</text>
+          <text class="muted-text">{{item.description}}</text>
         </view>
-        <view class="robot-status">
-          <view class="status-dot {{item.online ? 'dot-online' : 'dot-offline'}}"></view>
-          <text class="status-text">{{item.online ? 'Online' : 'Offline'}}</text>
-          <text class="battery">🔋 {{item.battery}}%</text>
+        <view class="device-stats">
+          <view class="badge badge-battery">{{item.battery}}%</view>
         </view>
       </view>
     </view>
@@ -41,10 +44,10 @@
 
   <view class="section">
     <text class="section-title">Quick Actions</text>
-    <view class="actions">
-      <button class="action-btn primary" bindtap="goToControl">Control</button>
-      <button class="action-btn" bindtap="goToTasks">Tasks</button>
-      <button class="action-btn" bindtap="goToProfile">Profile</button>
+    <view class="grid-3" style="margin-top: 16rpx;">
+      <button class="btn btn-primary" bindtap="goToControl">Control</button>
+      <button class="btn btn-secondary" bindtap="goToTasks">Tasks</button>
+      <button class="btn btn-secondary" bindtap="goToProfile">Profile</button>
     </view>
   </view>
 

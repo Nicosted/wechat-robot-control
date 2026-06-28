@@ -1,10 +1,10 @@
 Page({
   data: {
     tasks: [
-      { id: 1, title: 'Patrol Zone A', reward: 150, done: true },
-      { id: 2, title: 'Charge to 80%', reward: 50, done: false },
-      { id: 3, title: 'Follow target', reward: 200, done: false },
-      { id: 4, title: 'Return to base', reward: 100, done: false }
+      { id: 1, title: 'SkyHawk patrol route', reward: 150, done: true },
+      { id: 2, title: 'NanoPet charge to 80%', reward: 50, done: false },
+      { id: 3, title: 'CyberDog follow target', reward: 200, done: false },
+      { id: 4, title: 'Return NanoPet to base', reward: 100, done: false }
     ]
   },
 

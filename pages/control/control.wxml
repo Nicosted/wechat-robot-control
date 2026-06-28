@@ -1,32 +1,48 @@
-<view class="page">
-  <view class="status-card">
-    <view class="status-badge {{connected ? 'online' : 'offline'}}">
-      <view class="status-dot"></view>
-      <text>{{connected ? 'Connected' : 'Standby'}}</text>
+<view class="page-shell safe-bottom">
+  <view class="glass-card card-padding">
+    <view class="card-row" style="margin-bottom: 16rpx;">
+      <view>
+        <text class="section-title">{{robotName}}</text>
+        <text class="muted-text">{{description}}</text>
+      </view>
+      <view class="badge {{connected ? 'badge-online' : 'badge-offline'}}">{{connected ? 'Connected' : 'Standby'}}</view>
     </view>
-    <text class="robot-name">{{robotName}}</text>
-    <text class="robot-subtitle">{{connected ? 'Autonomous mode ready' : 'Connect to begin control'}}</text>
-  </view>
 
-  <view class="controls-panel">
-    <view class="joystick-grid">
-      <view class="control-cell empty"></view>
-      <button class="control-btn direction forward" disabled="{{!connected}}">▲</button>
-      <view class="control-cell empty"></view>
-
-      <button class="control-btn direction left" disabled="{{!connected}}">◀</button>
-      <button class="control-btn stop" disabled="{{!connected}}">STOP</button>
-      <button class="control-btn direction right" disabled="{{!connected}}">▶</button>
-
-      <view class="control-cell empty"></view>
-      <button class="control-btn direction back" disabled="{{!connected}}">▼</button>
-      <view class="control-cell empty"></view>
+    <view class="card-row" style="gap: 12rpx; flex-wrap: wrap; margin-top: 14rpx;">
+      <view class="badge badge-battery">Battery {{battery}}%</view>
+      <view class="badge badge-xp">Mode {{mode}}</view>
+      <view class="badge badge-secondary">{{accentLabel}}</view>
     </view>
   </view>
 
-  <view class="actions">
-    <button wx:if="{{!connected}}" class="action-btn connect" bindtap="connect">Connect</button>
-    <button wx:else class="action-btn disconnect" bindtap="disconnect">Disconnect</button>
+  <view class="section">
+    <view class="glass-card card-padding">
+      <view class="joystick-grid">
+        <view class="control-cell"></view>
+        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Up" bindtap="handleAction">▲</button>
+        <view class="control-cell"></view>
+
+        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Left" bindtap="handleAction">◀</button>
+        <button class="ctrl-btn stop" disabled="{{!connected}}" data-action="STOP" bindtap="handleAction">STOP</button>
+        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Right" bindtap="handleAction">▶</button>
+
+        <view class="control-cell"></view>
+        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Down" bindtap="handleAction">▼</button>
+        <view class="control-cell"></view>
+      </view>
+
+      <view class="grid-3" style="margin-top: 20rpx;">
+        <button class="btn btn-secondary" data-action="Auto" bindtap="handleAction">Auto</button>
+        <button class="btn btn-secondary" data-action="Voice" bindtap="handleAction">Voice</button>
+        <button class="btn btn-secondary" data-action="Lights" bindtap="handleAction">Lights</button>
+      </view>
+
+      <view class="grid-3" style="margin-top: 14rpx;">
+        <button class="btn btn-secondary" data-action="Return" bindtap="handleAction">Return</button>
+        <button wx:if="{{!connected}}" class="btn btn-primary" bindtap="connect">Connect</button>
+        <button wx:else class="btn btn-danger" bindtap="disconnect">Disconnect</button>
+      </view>
+    </view>
   </view>
 
   <custom-tab-bar />

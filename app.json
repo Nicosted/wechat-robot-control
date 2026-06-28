@@ -11,7 +11,31 @@
     "navigationBarTitleText": "Robot Control",
     "navigationBarTextStyle": "white"
   },
-  "custom": true,
+  "tabBar": {
+    "custom": true,
+    "color": "#8a8a8a",
+    "selectedColor": "#4ecdc4",
+    "backgroundColor": "#0f0f1e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/control/control",
+        "text": "Control"
+      },
+      {
+        "pagePath": "pages/tasks/tasks",
+        "text": "Tasks"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "Profile"
+      }
+    ]
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

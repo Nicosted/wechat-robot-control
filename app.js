@@ -4,6 +4,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    connectedRobot: null
+    connectedRobot: null,
+    selectedDeviceId: null
   }
 })
