@@ -1,0 +1,20 @@
+<view class="page">
+  <text class="subtitle">Complete tasks to earn XP</text>
+  <view class="task-list">
+    <view
+      wx:for="{{tasks}}"
+      wx:key="id"
+      class="task-card {{item.done ? 'done' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="toggleTask"
+    >
+      <view class="task-check">{{item.done ? '✓' : ''}}</view>
+      <view class="task-info">
+        <text class="task-title">{{item.title}}</text>
+        <text class="task-reward">+{{item.reward}} XP</text>
+      </view>
+    </view>
+  </view>
+
+  <custom-tab-bar />
+</view>

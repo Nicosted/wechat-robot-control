@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="status-card">
+    <view class="status-badge {{connected ? 'online' : 'offline'}}">
+      <view class="status-dot"></view>
+      <text>{{connected ? 'Connected' : 'Standby'}}</text>
+    </view>
+    <text class="robot-name">{{robotName}}</text>
+    <text class="robot-subtitle">{{connected ? 'Autonomous mode ready' : 'Connect to begin control'}}</text>
+  </view>
+
+  <view class="controls-panel">
+    <view class="joystick-grid">
+      <view class="control-cell empty"></view>
+      <button class="control-btn direction forward" disabled="{{!connected}}">▲</button>
+      <view class="control-cell empty"></view>
+
+      <button class="control-btn direction left" disabled="{{!connected}}">◀</button>
+      <button class="control-btn stop" disabled="{{!connected}}">STOP</button>
+      <button class="control-btn direction right" disabled="{{!connected}}">▶</button>
+
+      <view class="control-cell empty"></view>
+      <button class="control-btn direction back" disabled="{{!connected}}">▼</button>
+      <view class="control-cell empty"></view>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button wx:if="{{!connected}}" class="action-btn connect" bindtap="connect">Connect</button>
+    <button wx:else class="action-btn disconnect" bindtap="disconnect">Disconnect</button>
+  </view>
+
+  <custom-tab-bar />
+</view>

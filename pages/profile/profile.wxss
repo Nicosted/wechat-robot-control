@@ -1,0 +1,58 @@
+.page {
+  padding: 32rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48rpx;
+}
+
+.avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.stats-grid {
+  display: flex;
+  gap: 16rpx;
+}
+
+.stat-card {
+  flex: 1;
+  padding: 28rpx;
+  background: #1a1a2e;
+  border-radius: 16rpx;
+  border: 1rpx solid #2d2d44;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.stat-label {
+  display: block;
+  font-size: 22rpx;
+  color: #8892b0;
+  margin-top: 8rpx;
+}

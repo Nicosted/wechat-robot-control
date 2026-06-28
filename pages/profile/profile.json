@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Profile",
+  "usingComponents": {
+    "custom-tab-bar": "/custom-tab-bar/index"
+  }
+}

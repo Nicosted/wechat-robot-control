@@ -1,0 +1,52 @@
+<view class="page">
+  <view class="header">
+    <view class="greeting">
+      <text class="greeting-label">Welcome back,</text>
+      <text class="greeting-name">{{userName}}</text>
+    </view>
+    <view class="xp-card">
+      <view class="xp-header">
+        <text class="xp-label">XP Level</text>
+        <text class="xp-value">{{xp}} / {{xpMax}}</text>
+      </view>
+      <view class="xp-bar">
+        <view class="xp-fill" style="width: {{xpPercent}}%"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">Your Robots</text>
+    <view class="robot-list">
+      <view
+        wx:for="{{robots}}"
+        wx:key="id"
+        class="robot-card {{item.online ? 'online' : 'offline'}}"
+        data-id="{{item.id}}"
+        bindtap="onRobotTap"
+      >
+        <view class="robot-icon">{{item.icon}}</view>
+        <view class="robot-info">
+          <text class="robot-name">{{item.name}}</text>
+          <text class="robot-type">{{item.type}}</text>
+        </view>
+        <view class="robot-status">
+          <view class="status-dot {{item.online ? 'dot-online' : 'dot-offline'}}"></view>
+          <text class="status-text">{{item.online ? 'Online' : 'Offline'}}</text>
+          <text class="battery">🔋 {{item.battery}}%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">Quick Actions</text>
+    <view class="actions">
+      <button class="action-btn primary" bindtap="goToControl">Control</button>
+      <button class="action-btn" bindtap="goToTasks">Tasks</button>
+      <button class="action-btn" bindtap="goToProfile">Profile</button>
+    </view>
+  </view>
+
+  <custom-tab-bar />
+</view>

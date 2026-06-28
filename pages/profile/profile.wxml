@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="profile-header">
+    <view class="avatar">{{userInfo.nickName[0] || 'P'}}</view>
+    <text class="nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-value">{{stats.robotsOwned}}</text>
+      <text class="stat-label">Robots</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{stats.tasksCompleted}}</text>
+      <text class="stat-label">Tasks Done</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{stats.totalXp}}</text>
+      <text class="stat-label">Total XP</text>
+    </view>
+  </view>
+
+  <custom-tab-bar />
+</view>

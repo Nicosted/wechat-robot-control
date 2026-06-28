@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/control/control",
+    "pages/tasks/tasks",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTitleText": "Robot Control",
+    "navigationBarTextStyle": "white"
+  },
+  "custom": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
