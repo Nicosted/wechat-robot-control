@@ -1,0 +1,9 @@
+{
+  "description": "Private WeChat DevTools overrides. Copy this file to project.private.config.json for local-only settings. Do not commit real AppID, AppSecret, tokens, or keys.",
+  "appid": "touristappid",
+  "projectname": "robot-control-app",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": true
+  }
+}

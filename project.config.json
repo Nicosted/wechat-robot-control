@@ -1,6 +1,6 @@
 {
   "description": "Robot Control Mini Program",
-  "appid": "wxde77ce605fa967ff",
+  "appid": "touristappid",
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
   "projectname": "robot-control-app",
