@@ -12,6 +12,9 @@ Page({
     lessons: [
       {
         id: 1,
+        emoji: '🤖',
+        titleKey: 'robotBasics',
+        descriptionKey: 'meetToy',
         title: '🤖 Robot Basics',
         description: 'Meet your robot and learn what it can do.',
         progress: 80,
@@ -21,6 +24,9 @@ Page({
       },
       {
         id: 2,
+        emoji: '🎮',
+        titleKey: 'safeControl',
+        descriptionKey: 'practiceStop',
         title: '🎮 Safe Control',
         description: 'Practice movement, stop, and return commands.',
         progress: 60,
@@ -30,6 +36,9 @@ Page({
       },
       {
         id: 3,
+        emoji: '💡',
+        titleKey: 'simpleCoding',
+        descriptionKey: 'tinyCommands',
         title: '💡 Simple Coding',
         description: 'Build tiny command blocks for your robot.',
         progress: 35,
@@ -39,6 +48,9 @@ Page({
       },
       {
         id: 4,
+        emoji: '🏆',
+        titleKey: 'challenges',
+        descriptionKey: 'earnRewards',
         title: '🏆 Challenges',
         description: 'Complete missions and earn XP.',
         progress: 20,
@@ -83,14 +95,11 @@ Page({
       },
       lessons: this.data.lessons.map((lesson, index) => ({
         ...lesson,
-        title: [
-          `🤖 ${i18n.t('robotBasics')}`,
-          `🎮 ${i18n.t('safeControl')}`,
-          `💡 ${i18n.t('simpleCoding')}`,
-          `🏆 ${i18n.t('challenges')}`
-        ][index] || lesson.title
+        title: i18n.t(lesson.titleKey),
+        description: i18n.t(lesson.descriptionKey)
       }))
     });
+    wx.setNavigationBarTitle({ title: i18n.t('academy') });
   },
 
   startLearning() {

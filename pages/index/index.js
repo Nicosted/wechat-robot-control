@@ -11,8 +11,10 @@ Page({
     starsLabel: '',
     quickActions: '',
     play: '',
-    train: '',
-    learn: '',
+    missionsLabel: '',
+    academyLabel: '',
+    safeModeLabel: '',
+    demoModeLabel: '',
     devices: [],
     selectedDeviceId: ''
   },
@@ -44,9 +46,32 @@ Page({
       starsLabel: i18n.t('stars'),
       quickActions: i18n.t('quickActions'),
       play: i18n.t('playNow'),
-      train: i18n.t('train'),
-      learn: i18n.t('learn')
+      missionsLabel: i18n.t('missions'),
+      academyLabel: i18n.t('academy'),
+      safeModeLabel: i18n.t('safeMode'),
+      demoModeLabel: i18n.t('demoMode'),
+      devices: mockDevices.map((device) => this._localizeDevice(device))
     });
+    wx.setNavigationBarTitle({ title: i18n.t('home') });
+  },
+
+  _localizeDevice(device) {
+    const typeKeys = {
+      nanopet: 'aiPet',
+      skyhawk: 'drone',
+      cyberdog: 'robotDog'
+    };
+    const moodKeys = {
+      nanopet: 'happy',
+      skyhawk: 'readyMood',
+      cyberdog: 'excited'
+    };
+    return {
+      ...device,
+      localizedType: i18n.t(typeKeys[device.id] || 'toys'),
+      localizedMood: i18n.t(moodKeys[device.id] || 'readyMood'),
+      localizedStatus: i18n.t(device.status === 'Online' ? 'online' : 'standby')
+    };
   },
 
   onDeviceTap(e) {
@@ -66,7 +91,7 @@ Page({
     wx.switchTab({ url: '/pages/tasks/tasks' });
   },
 
-  goToProfile() {
-    wx.switchTab({ url: '/pages/profile/profile' });
+  goToAcademy() {
+    wx.switchTab({ url: '/pages/academy/academy' });
   }
 });

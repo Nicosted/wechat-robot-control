@@ -1,40 +1,45 @@
-<view class="page-shell safe-bottom">
-  <view class="glass-card card-padding academy-hero">
-    <text class="section-title">{{academyTitle}}</text>
-    <text class="muted-text" style="margin-top: 12rpx; line-height: 1.6;">{{academySubtitle}}</text>
-    <view class="badge badge-academy" style="margin-top: 18rpx;">{{newLessonsLabel}}</view>
+<view class="page-shell compact-page safe-bottom fit-screen">
+  <view class="glass-card compact-card academy-hero">
+    <view class="card-row">
+      <view>
+        <text class="section-title">{{academyTitle}}</text>
+        <text class="muted-text academy-copy">{{academySubtitle}}</text>
+      </view>
+      <view class="badge badge-academy">{{newLessonsLabel}}</view>
+    </view>
   </view>
 
-  <view class="glass-card today-card card-padding" style="margin-top: 24rpx;">
+  <view class="glass-card compact-card today-card">
     <view class="card-row">
       <view>
         <text class="section-subtitle">{{todayLesson.title}}</text>
         <text class="lesson-title">{{todayLesson.label}}</text>
-        <text class="muted-text">{{todayLesson.note}}</text>
       </view>
       <view class="badge badge-secondary">{{todayLesson.badge}}</view>
     </view>
   </view>
 
-  <view class="section" style="margin-top: 28rpx;">
-    <view class="card-row" style="margin-bottom: 18rpx; gap: 10rpx;">
+  <view class="section compact-section">
+    <view class="card-row path-head">
       <text class="section-title">{{learningPathLabel}}</text>
       <button class="btn btn-secondary" bindtap="startLearning">{{startLearningBtn}}</button>
     </view>
 
-    <view wx:for="{{lessons}}" wx:key="id" class="academy-card glass-card card-padding" style="border-left: 6rpx solid {{item.accent}};">
-      <view class="card-row academy-card-top">
+    <view class="academy-grid">
+      <view wx:for="{{lessons}}" wx:key="id" class="academy-card glass-card compact-card" style="border-top: 5rpx solid {{item.accent}};">
+        <view class="academy-card-top">
+          <text class="lesson-emoji">{{item.emoji}}</text>
+          <text class="star-score">{{item.stars}}</text>
+        </view>
         <text class="lesson-name">{{item.title}}</text>
-        <text class="star-score">{{item.stars}}</text>
-      </view>
-      <text class="muted-text" style="margin-top: 12rpx;">{{item.description}}</text>
-
-      <view class="progress-summary" style="margin-top: 18rpx; gap: 10rpx;">
-        <text class="progress-text">{{item.progress}}% {{completeLabel}}</text>
-        <view class="badge badge-secondary" style="background: {{item.accentBg}}; color: {{item.accent}};">{{practiceLabel}}</view>
-      </view>
-      <view class="progress-bar" style="margin-top: 12rpx; background: rgba(255,255,255,0.05);">
-        <view class="progress-fill" style="width: {{item.progress}}%; background: linear-gradient(135deg, {{item.accent}}, #ffffff30);"></view>
+        <text class="muted-text lesson-note">{{item.description}}</text>
+        <view class="progress-summary">
+          <text class="progress-text">{{item.progress}}%</text>
+          <text class="practice-text">{{practiceLabel}}</text>
+        </view>
+        <view class="progress-bar academy-progress">
+          <view class="progress-fill" style="width: {{item.progress}}%; background: linear-gradient(135deg, {{item.accent}}, #ffffff30);"></view>
+        </view>
       </view>
     </view>
   </view>

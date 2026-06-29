@@ -6,21 +6,23 @@ page {
 
 .page-shell {
   min-height: 100vh;
-  padding: 32rpx 28rpx 172rpx;
+  padding: 22rpx 22rpx 136rpx;
   box-sizing: border-box;
+  max-width: 920rpx;
+  margin: 0 auto;
 }
 
 .safe-bottom {
-  padding-bottom: calc(172rpx + env(safe-area-inset-bottom));
+  padding-bottom: calc(136rpx + env(safe-area-inset-bottom));
 }
 
 .section {
-  margin-top: 28rpx;
+  margin-top: 18rpx;
 }
 
 .section-title {
   display: block;
-  font-size: 32rpx;
+  font-size: 28rpx;
   font-weight: 700;
   color: #e9f1ff;
 }
@@ -34,8 +36,8 @@ page {
   background: rgba(15, 18, 30, 0.82);
   border: 1rpx solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(22px);
-  border-radius: 24rpx;
-  box-shadow: 0 24rpx 60rpx rgba(2, 8, 22, 0.32);
+  border-radius: 18rpx;
+  box-shadow: 0 14rpx 36rpx rgba(2, 8, 22, 0.28);
 }
 
 .glass-card {
@@ -43,7 +45,7 @@ page {
 }
 
 .card-padding {
-  padding: 28rpx;
+  padding: 18rpx;
 }
 
 .card-row {
@@ -55,10 +57,10 @@ page {
 
 .btn {
   border: none;
-  border-radius: 18rpx;
-  min-height: 84rpx;
-  padding: 18rpx 24rpx;
-  font-size: 28rpx;
+  border-radius: 16rpx;
+  min-height: 68rpx;
+  padding: 12rpx 16rpx;
+  font-size: 24rpx;
   font-weight: 700;
   color: #f8fbff;
   display: flex;
@@ -84,9 +86,9 @@ page {
   display: inline-flex;
   align-items: center;
   gap: 10rpx;
-  padding: 10rpx 16rpx;
+  padding: 8rpx 12rpx;
   border-radius: 999rpx;
-  font-size: 24rpx;
+  font-size: 21rpx;
   font-weight: 600;
 }
 
@@ -137,6 +139,50 @@ page {
 .grid-3 {
   display: flex;
   gap: 16rpx;
+}
+
+.compact-page {
+  padding-top: 18rpx;
+}
+
+.compact-card {
+  padding: 16rpx;
+  border-radius: 18rpx;
+}
+
+.compact-section {
+  margin-top: 16rpx;
+}
+
+.fit-screen {
+  min-height: calc(100vh - 136rpx - env(safe-area-inset-bottom));
+}
+
+.mini-stat {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  color: #cfe0ff;
+  font-size: 21rpx;
+}
+
+.toy-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.action-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+@media screen and (min-width: 720px) {
+  .page-shell {
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+  }
 }
 
 .flex-center {

@@ -1,33 +1,24 @@
-.page-shell {
-  min-height: 100vh;
+.missions-head {
+  margin-bottom: 12rpx;
+  background: linear-gradient(145deg, rgba(255, 230, 109, 0.1), rgba(78, 205, 196, 0.08));
 }
 
-.glass-card {
-  background: rgba(7, 11, 23, 0.90);
-  border: 1rpx solid rgba(255, 255, 255, 0.08);
-  border-radius: 24rpx;
-}
-
-.card-padding {
-  padding: 28rpx;
-}
-
-.card-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16rpx;
+.mission-copy {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  line-height: 1.35;
 }
 
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: 18rpx;
+  gap: 10rpx;
 }
 
 .task-card {
-  padding: 24rpx;
-  border-radius: 24rpx;
+  padding: 14rpx;
+  border-radius: 18rpx;
   border: 1rpx solid rgba(255, 255, 255, 0.08);
 }
 
@@ -38,46 +29,56 @@
 .task-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14rpx;
+  gap: 12rpx;
+}
+
+.task-emoji {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 28rpx;
+  flex: none;
+}
+
+.task-main {
+  flex: 1;
+  min-width: 0;
 }
 
 .task-title {
   display: block;
-  font-size: 28rpx;
-  font-weight: 700;
-  margin-bottom: 8rpx;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 14rpx;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 800;
+  color: #f4f7ff;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(135deg, #31d7ff, #7c5dff);
-  border-radius: 999rpx;
+.task-meta {
+  display: flex;
+  gap: 14rpx;
+  margin-top: 4rpx;
+  color: #94a3b8;
+  font-size: 20rpx;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 10rpx 16rpx;
-  border-radius: 999rpx;
-  font-size: 22rpx;
-  font-weight: 700;
+.mission-progress {
+  height: 9rpx;
+  margin-top: 10rpx;
 }
 
-.badge-online {
-  background: rgba(67, 246, 187, 0.16);
-  color: #8cffcc;
-}
+@media screen and (min-width: 720px) {
+  .task-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-.badge-battery {
-  background: rgba(69, 140, 255, 0.16);
-  color: #a6d7ff;
+  .task-card {
+    flex: 1 1 40%;
+  }
 }

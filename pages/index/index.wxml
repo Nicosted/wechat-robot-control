@@ -1,15 +1,19 @@
-<view class="page-shell safe-bottom">
-  <view class="card glass-card card-padding hero-card">
+<view class="page-shell compact-page safe-bottom fit-screen">
+  <view class="card glass-card compact-card hero-card">
     <view class="card-row">
       <view>
-        <text class="section-title" style="font-size: 40rpx; margin-bottom: 12rpx;">{{hub}}</text>
-        <text class="muted-text" style="line-height: 1.6;">{{hubSubtitle}}</text>
+        <text class="section-title hero-title">{{hub}}</text>
+        <text class="muted-text hero-copy">{{hubSubtitle}}</text>
+      </view>
+      <view class="hero-chips">
+        <view class="badge badge-xp">{{demoModeLabel}}</view>
+        <view class="badge badge-online">{{safeModeLabel}}</view>
       </view>
     </view>
   </view>
 
-  <view class="section">
-    <text class="section-title" style="margin-bottom: 18rpx;">{{chooseBuddy}}</text>
+  <view class="section compact-section">
+    <text class="section-title section-tight">{{chooseBuddy}}</text>
 
     <view class="device-grid">
       <view
@@ -19,38 +23,35 @@
         data-id="{{item.id}}"
         bindtap="onDeviceTap"
       >
-        <view class="toy-header">
+        <view class="toy-row">
           <text class="toy-emoji">{{item.emoji}}</text>
-          <view class="toy-badge {{item.status === 'Online' ? 'badge-online' : 'badge-offline'}}">{{item.status}}</view>
-        </view>
-        <text class="toy-name">{{item.name}}</text>
-        <text class="toy-type">{{item.type}}</text>
-        <text class="toy-personality" style="margin-top: 10rpx; font-size: 22rpx;">{{item.personality}}</text>
-        <view class="toy-mood-bar" style="margin-top: 12rpx;">
-          <text class="mood-label">{{moodLabel}}: </text>
-          <text class="mood-value">{{item.mood}}</text>
-        </view>
-        <view class="toy-energy-bar" style="margin-top: 8rpx;">
-          <text class="energy-label">{{energyLabel}}: </text>
-          <view class="progress-bar" style="flex: 1; margin-left: 8rpx;">
-            <view class="progress-fill" style="width: {{item.energy}}%; background: linear-gradient(135deg, #31d7ff, #7c5dff);"></view>
+          <view class="toy-main">
+            <view class="toy-topline">
+              <text class="toy-name">{{item.name}}</text>
+              <view class="toy-badge {{item.status === 'Online' ? 'badge-online' : 'badge-offline'}}">{{item.localizedStatus}}</view>
+            </view>
+            <text class="toy-type">{{item.localizedType}} · {{moodLabel}} {{item.localizedMood}}</text>
+            <view class="toy-meter">
+              <text class="mini-stat">{{energyLabel}}</text>
+              <view class="progress-bar">
+                <view class="progress-fill" style="width: {{item.energy}}%;"></view>
+              </view>
+              <text class="mini-stat">{{item.battery}}%</text>
+            </view>
           </view>
-        </view>
-        <view class="toy-play-mode" style="margin-top: 12rpx; font-size: 22rpx; color: #a6d7ff;">{{item.playMode}}</view>
-        <view class="toy-stats" style="margin-top: 14rpx; display: flex; gap: 12rpx;">
-          <view class="badge badge-xp">{{item.stars}} {{starsLabel}}</view>
-          <view class="badge badge-battery">{{item.battery}}%</view>
+          <button class="btn btn-primary toy-play">{{play}}</button>
         </view>
       </view>
     </view>
   </view>
 
-  <view class="section">
-    <text class="section-title">{{quickActions}}</text>
-    <view class="grid-3" style="margin-top: 16rpx;">
+  <view class="section compact-section">
+    <text class="section-title section-tight">{{quickActions}}</text>
+    <view class="action-grid home-actions">
       <button class="btn btn-primary" bindtap="goToControl">{{play}}</button>
-      <button class="btn btn-secondary" bindtap="goToTasks">{{train}}</button>
-      <button class="btn btn-secondary" bindtap="goToProfile">{{learn}}</button>
+      <button class="btn btn-secondary" bindtap="goToTasks">{{missionsLabel}}</button>
+      <button class="btn btn-secondary" bindtap="goToAcademy">{{academyLabel}}</button>
+      <button class="btn btn-secondary">{{safeModeLabel}}</button>
     </view>
   </view>
 

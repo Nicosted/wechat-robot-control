@@ -9,6 +9,7 @@ Page({
     favoriteBuddyLabel: '',
     safetyModeLabel: '',
     settingsLabel: '',
+    toysLabel: '',
     languageLabel: '',
     preferencesLabel: '',
     registeredDevicesLabel: '',
@@ -19,6 +20,7 @@ Page({
     totalXpLabel: '',
     levelLabel: '',
     favoriteBuddyValue: '',
+    starsLabel: '',
     enabledLabel: '',
     onLabel: '',
     chatLabel: '',
@@ -52,7 +54,7 @@ Page({
 
   _hydrateProfile() {
     const app = getApp();
-    const devices = mockDevices;
+    const devices = mockDevices.map((device) => this._localizeDevice(device));
     const totalXp = devices.reduce((sum, device) => sum + device.xp, 0);
     const totalStars = devices.reduce((sum, device) => sum + device.stars, 0);
     const currentLanguage = i18n.getLanguage();
@@ -83,6 +85,7 @@ Page({
       favoriteBuddyLabel: i18n.t('favoriteBody'),
       safetyModeLabel: i18n.t('safetyModeEnabled'),
       settingsLabel: i18n.t('settings'),
+      toysLabel: i18n.t('toys'),
       languageLabel: i18n.t('language'),
       preferencesLabel: i18n.t('preferences'),
       registeredDevicesLabel: i18n.t('registeredDevices'),
@@ -93,10 +96,25 @@ Page({
       totalXpLabel: i18n.t('totalXp'),
       levelLabel: i18n.t('levelValue'),
       favoriteBuddyValue: i18n.t('favoriteBuddyValue'),
+      starsLabel: i18n.t('stars'),
       enabledLabel: i18n.t('enabled'),
       onLabel: i18n.t('on'),
       chatLabel: i18n.t('chat')
     });
+    wx.setNavigationBarTitle({ title: i18n.t('profile') });
+  },
+
+  _localizeDevice(device) {
+    const moodKeys = {
+      nanopet: 'happy',
+      skyhawk: 'readyMood',
+      cyberdog: 'excited'
+    };
+    return {
+      ...device,
+      localizedMood: i18n.t(moodKeys[device.id] || 'readyMood'),
+      localizedStatus: i18n.t(device.status === 'Online' ? 'online' : 'standby')
+    };
   },
 
   setLanguage(e) {
@@ -109,6 +127,9 @@ Page({
     this.setData({ currentLanguage: code });
     this._refreshVisiblePages();
     this._hydrateProfile();
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().updateSelected();
+    }
     wx.showToast({ title: i18n.t('languageUpdated'), icon: 'success' });
   },
 
