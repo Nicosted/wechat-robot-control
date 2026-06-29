@@ -1,68 +1,71 @@
 .academy-hero {
-  background: linear-gradient(160deg, rgba(78, 205, 196, 0.14), rgba(255, 107, 157, 0.12));
+  background: linear-gradient(135deg, rgba(124, 93, 255, 0.16), rgba(78, 205, 196, 0.13));
 }
 
-.section-subtitle {
+.academy-copy {
   display: block;
-  color: #94a3b8;
-  font-size: 24rpx;
-  margin-bottom: 10rpx;
+  margin-top: 4rpx;
+  line-height: 1.28;
+  font-size: 23rpx;
 }
 
-.lesson-title {
-  display: block;
-  font-size: 28rpx;
-  font-weight: 700;
-  margin-top: 6rpx;
-  color: #f4f7ff;
+.academy-menu {
+  margin-top: 16rpx;
 }
 
-.today-card {
-  border: 1rpx solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 0 1rpx rgba(255, 255, 255, 0.04);
+.academy-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
 }
 
 .academy-card {
-  margin-bottom: 18rpx;
-  border-left-width: 6rpx;
-  border-left-style: solid;
+  flex: 1 1 42%;
+  min-width: 230rpx;
+  min-height: 170rpx;
+  padding: 18rpx;
+  box-sizing: border-box;
 }
 
 .academy-card-top {
-  align-items: center;
-  justify-content: space-between;
-}
-
-.lesson-name {
-  font-size: 26rpx;
-  font-weight: 700;
-  color: #fff;
-}
-
-.star-score {
-  font-size: 24rpx;
-  letter-spacing: 2rpx;
-  color: #ffe66d;
-}
-
-.progress-summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.progress-text {
-  color: #d9e3ff;
-  font-weight: 600;
+.lesson-emoji {
+  font-size: 42rpx;
 }
 
-.badge-academy {
-  display: inline-flex;
-  align-items: center;
-  gap: 10rpx;
-  padding: 10rpx 16rpx;
-  border-radius: 999rpx;
-  background: rgba(255, 255, 255, 0.08);
-  color: #f4f7ff;
+.lesson-name {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  font-weight: 900;
+  color: #fff;
+}
+
+.star-score {
+  font-size: 20rpx;
+  color: #ffdf6a;
+}
+
+.progress-summary {
+  margin-top: 10rpx;
+}
+
+.progress-text {
+  color: #cfe0ff;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.academy-cta {
   margin-top: 14rpx;
+}
+
+@media screen and (min-width: 720px) {
+  .academy-card {
+    flex-basis: 22%;
+  }
 }

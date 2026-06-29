@@ -1,29 +1,26 @@
-<view class="page-shell safe-bottom">
-  <view class="glass-card card-padding" style="margin-bottom: 24rpx;">
-    <view class="card-row">
-      <text class="section-title">Mission Control</text>
-      <view class="badge badge-xp">{{tasks.length}} Missions</view>
-    </view>
-    <text class="muted-text" style="margin-top: 14rpx;">Complete missions to earn XP and unlock advanced AI features.</text>
+<view class="page-shell compact-page safe-bottom app-screen">
+  <view class="hero-simple missions-head">
+    <text class="section-title">{{sectionTitle}}</text>
+    <text class="mini-chip">{{tasks.length}} {{missionsLabel}}</text>
   </view>
 
   <view class="task-list">
     <view
       wx:for="{{tasks}}"
       wx:key="id"
-      class="glass-card task-card {{item.done ? 'done' : ''}}"
+      class="simple-card task-card {{item.done ? 'done' : ''}}"
       data-id="{{item.id}}"
       bindtap="toggleTask"
     >
       <view class="task-row">
-        <view>
+        <text class="task-emoji">{{item.emoji}}</text>
+        <view class="task-main">
           <text class="task-title">{{item.title}}</text>
-          <text class="muted-text">Earn {{item.reward}} XP</text>
+          <view class="task-meta">
+            <text>{{item.stars}} {{starsLabel}}</text>
+          </view>
         </view>
-        <view class="badge {{item.done ? 'badge-online' : 'badge-battery'}}">{{item.done ? 'Completed' : 'Pending'}}</view>
-      </view>
-      <view class="progress-bar" style="margin-top: 18rpx;">
-        <view class="progress-fill" style="width: {{item.done ? '100%' : '34%'}}"></view>
+        <view class="mini-chip {{item.done ? 'done-chip' : ''}}">{{item.done ? completedLabel : pendingLabel}}</view>
       </view>
     </view>
   </view>

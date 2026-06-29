@@ -1,53 +1,45 @@
-<view class="page-shell safe-bottom">
-  <view class="card glass-card card-padding">
+<view class="page-shell compact-page safe-bottom app-screen">
+  <view class="hero-simple hero-card">
     <view class="card-row">
       <view>
-        <text class="section-title">AI Toy Command</text>
-        <text class="muted-text">Your premium command center for robots, drones, and AI pets.</text>
+        <text class="section-title hero-title">{{hub}}</text>
+        <text class="muted-text hero-copy">{{hubSubtitle}}</text>
       </view>
-      <view class="badge badge-xp">XP {{xp}}</view>
-    </view>
-
-    <view class="card-row" style="margin-top: 24rpx; gap: 12rpx; flex-wrap: wrap;">
-      <view class="badge badge-online">Online: {{devices.length - 1}}</view>
-      <view class="badge badge-battery">Battery: 62%</view>
-      <view class="badge badge-offline">Standby: 1</view>
+      <view class="hero-chips">
+        <view class="mini-chip">{{demoModeLabel}}</view>
+        <view class="mini-chip safe">{{safeModeLabel}}</view>
+      </view>
     </view>
   </view>
 
-  <view class="section">
-    <view class="card-row" style="margin-bottom: 18rpx;">
-      <text class="section-title">Active Devices</text>
-      <button class="btn btn-secondary" bindtap="goToControl">Manage</button>
-    </view>
+  <view class="section launcher-section">
+    <text class="section-title section-tight">{{chooseBuddy}}</text>
 
-    <view class="device-grid">
+    <view class="toy-launcher">
       <view
         wx:for="{{devices}}"
         wx:key="id"
-        class="glass-card device-card {{item.id === selectedDeviceId ? 'device-card-active' : ''}}"
+        class="toy-tile toy-card {{item.id === selectedDeviceId ? 'toy-card-active' : ''}}"
         data-id="{{item.id}}"
         bindtap="onDeviceTap"
       >
-        <view class="device-chip {{item.status === 'Online' ? 'badge-online' : 'badge-offline'}}">{{item.status}}</view>
-        <view class="device-info">
-          <text class="device-name">{{item.name}}</text>
-          <text class="device-type">{{item.type}}</text>
-          <text class="muted-text">{{item.description}}</text>
-        </view>
-        <view class="device-stats">
-          <view class="badge badge-battery">{{item.battery}}%</view>
+        <text class="toy-emoji">{{item.emoji}}</text>
+        <text class="toy-name">{{item.name}}</text>
+        <text class="toy-type">{{item.localizedType}}</text>
+        <view class="tile-bottom">
+          <text class="mini-chip">{{item.battery}}%</text>
+          <text class="mini-chip">{{item.energy}}%</text>
         </view>
       </view>
     </view>
   </view>
 
-  <view class="section">
-    <text class="section-title">Quick Actions</text>
-    <view class="grid-3" style="margin-top: 16rpx;">
-      <button class="btn btn-primary" bindtap="goToControl">Control</button>
-      <button class="btn btn-secondary" bindtap="goToTasks">Tasks</button>
-      <button class="btn btn-secondary" bindtap="goToProfile">Profile</button>
+  <view class="section play-zone">
+    <button class="btn btn-primary big-play-button" bindtap="goToControl">{{play}}</button>
+    <view class="action-grid home-actions">
+      <button class="btn btn-secondary mini-action" bindtap="goToTasks">{{missionsLabel}}</button>
+      <button class="btn btn-secondary mini-action" bindtap="goToAcademy">{{academyLabel}}</button>
+      <button class="btn btn-secondary mini-action">{{safeModeLabel}}</button>
     </view>
   </view>
 

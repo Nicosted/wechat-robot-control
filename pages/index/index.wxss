@@ -1,58 +1,93 @@
-.device-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18rpx;
+.hero-card {
+  background: linear-gradient(135deg, rgba(255, 207, 74, 0.16), rgba(255, 107, 157, 0.12));
 }
 
-.device-card {
-  padding: 24rpx;
-  border-radius: 24rpx;
-  border: 1rpx solid rgba(255, 255, 255, 0.06);
-  overflow: hidden;
-  min-height: 212rpx;
+.hero-title {
+  font-size: 34rpx;
+  margin-bottom: 4rpx;
 }
 
-.device-card-active {
-  border-color: rgba(67, 246, 187, 0.4);
-  box-shadow: 0 0 0 1rpx rgba(67, 246, 187, 0.18);
-}
-
-.device-chip {
-  margin-bottom: 16rpx;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10rpx 16rpx;
-  border-radius: 999rpx;
-  font-size: 22rpx;
-  font-weight: 700;
-}
-
-.device-info {
-  margin-bottom: 18rpx;
-}
-
-.device-name {
+.hero-copy {
   display: block;
-  font-size: 30rpx;
-  font-weight: 700;
-  margin-bottom: 8rpx;
+  line-height: 1.28;
+  font-size: 23rpx;
 }
 
-.device-type {
-  display: block;
-  font-size: 22rpx;
-  color: #94a3b8;
-  margin-bottom: 6rpx;
-}
-
-.device-stats {
+.hero-chips {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8rpx;
+  flex: none;
+}
+
+.hero-chips .safe {
+  background: rgba(87, 236, 178, 0.18);
+}
+
+.launcher-section {
+  margin-top: 18rpx;
+}
+
+.section-tight {
+  margin-bottom: 12rpx;
+}
+
+.toy-card {
+  flex: 1 1 30%;
+  min-width: 190rpx;
+  min-height: 194rpx;
+  padding: 18rpx 12rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.toy-card-active {
+  background: linear-gradient(160deg, rgba(255, 207, 74, 0.22), rgba(255, 107, 157, 0.18));
+  box-shadow: 0 0 0 3rpx rgba(255, 207, 74, 0.32);
+}
+
+.toy-emoji {
+  display: block;
+  font-size: 58rpx;
+  line-height: 1;
+}
+
+.toy-name {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  font-weight: 900;
+  color: #fff;
+}
+
+.toy-type {
+  display: block;
+  margin-top: 2rpx;
+  color: #c8d4ef;
+  font-size: 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 6rpx;
+  margin-top: 12rpx;
+}
+
+.play-zone {
+  margin-top: 16rpx;
+}
+
+.home-actions {
+  margin-top: 10rpx;
 }
 
 @media screen and (min-width: 720px) {
-  .device-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .toy-card {
+    min-height: 220rpx;
   }
 }
