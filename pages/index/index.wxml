@@ -1,41 +1,44 @@
 <view class="page-shell safe-bottom">
-  <view class="card glass-card card-padding">
+  <view class="card glass-card card-padding hero-card">
     <view class="card-row">
       <view>
-        <text class="section-title">AI Toy Command</text>
-        <text class="muted-text">Your premium command center for robots, drones, and AI pets.</text>
+        <text class="section-title" style="font-size: 40rpx; margin-bottom: 12rpx;">{{hub}}</text>
+        <text class="muted-text" style="line-height: 1.6;">{{hubSubtitle}}</text>
       </view>
-      <view class="badge badge-xp">XP {{xp}}</view>
-    </view>
-
-    <view class="card-row" style="margin-top: 24rpx; gap: 12rpx; flex-wrap: wrap;">
-      <view class="badge badge-online">Online: {{devices.length - 1}}</view>
-      <view class="badge badge-battery">Battery: 62%</view>
-      <view class="badge badge-offline">Standby: 1</view>
     </view>
   </view>
 
   <view class="section">
-    <view class="card-row" style="margin-bottom: 18rpx;">
-      <text class="section-title">Active Devices</text>
-      <button class="btn btn-secondary" bindtap="goToControl">Manage</button>
-    </view>
+    <text class="section-title" style="margin-bottom: 18rpx;">{{chooseBuddy}}</text>
 
     <view class="device-grid">
       <view
         wx:for="{{devices}}"
         wx:key="id"
-        class="glass-card device-card {{item.id === selectedDeviceId ? 'device-card-active' : ''}}"
+        class="glass-card toy-card {{item.id === selectedDeviceId ? 'toy-card-active' : ''}}"
         data-id="{{item.id}}"
         bindtap="onDeviceTap"
       >
-        <view class="device-chip {{item.status === 'Online' ? 'badge-online' : 'badge-offline'}}">{{item.status}}</view>
-        <view class="device-info">
-          <text class="device-name">{{item.name}}</text>
-          <text class="device-type">{{item.type}}</text>
-          <text class="muted-text">{{item.description}}</text>
+        <view class="toy-header">
+          <text class="toy-emoji">{{item.emoji}}</text>
+          <view class="toy-badge {{item.status === 'Online' ? 'badge-online' : 'badge-offline'}}">{{item.status}}</view>
         </view>
-        <view class="device-stats">
+        <text class="toy-name">{{item.name}}</text>
+        <text class="toy-type">{{item.type}}</text>
+        <text class="toy-personality" style="margin-top: 10rpx; font-size: 22rpx;">{{item.personality}}</text>
+        <view class="toy-mood-bar" style="margin-top: 12rpx;">
+          <text class="mood-label">{{moodLabel}}: </text>
+          <text class="mood-value">{{item.mood}}</text>
+        </view>
+        <view class="toy-energy-bar" style="margin-top: 8rpx;">
+          <text class="energy-label">{{energyLabel}}: </text>
+          <view class="progress-bar" style="flex: 1; margin-left: 8rpx;">
+            <view class="progress-fill" style="width: {{item.energy}}%; background: linear-gradient(135deg, #31d7ff, #7c5dff);"></view>
+          </view>
+        </view>
+        <view class="toy-play-mode" style="margin-top: 12rpx; font-size: 22rpx; color: #a6d7ff;">{{item.playMode}}</view>
+        <view class="toy-stats" style="margin-top: 14rpx; display: flex; gap: 12rpx;">
+          <view class="badge badge-xp">{{item.stars}} {{starsLabel}}</view>
           <view class="badge badge-battery">{{item.battery}}%</view>
         </view>
       </view>
@@ -43,11 +46,11 @@
   </view>
 
   <view class="section">
-    <text class="section-title">Quick Actions</text>
+    <text class="section-title">{{quickActions}}</text>
     <view class="grid-3" style="margin-top: 16rpx;">
-      <button class="btn btn-primary" bindtap="goToControl">Control</button>
-      <button class="btn btn-secondary" bindtap="goToTasks">Tasks</button>
-      <button class="btn btn-secondary" bindtap="goToProfile">Profile</button>
+      <button class="btn btn-primary" bindtap="goToControl">{{play}}</button>
+      <button class="btn btn-secondary" bindtap="goToTasks">{{train}}</button>
+      <button class="btn btn-secondary" bindtap="goToProfile">{{learn}}</button>
     </view>
   </view>
 

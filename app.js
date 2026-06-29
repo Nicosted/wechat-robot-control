@@ -1,10 +1,14 @@
+const i18n = require('/utils/i18n');
+
 App({
   onLaunch() {
-    console.log('Robot Control App Launch')
+    i18n.initLanguage();
+    console.log('Smart Toy Hub Launch')
   },
   globalData: {
     userInfo: null,
     connectedRobot: null,
-    selectedDeviceId: null
+    selectedDeviceId: null,
+    language: 'en'
   }
 })

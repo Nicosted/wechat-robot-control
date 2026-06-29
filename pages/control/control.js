@@ -1,4 +1,5 @@
 const mockDevices = require('../../utils/mockDevices');
+const i18n = require('../../utils/i18n');
 
 Page({
   data: {
@@ -43,30 +44,31 @@ Page({
 
   connect() {
     this.setData({ connected: true, status: 'Online' });
-    wx.showToast({ title: 'Connected', icon: 'success' });
+    wx.showToast({ title: 'Demo: Connected', icon: 'success' });
   },
 
   disconnect() {
     this.setData({ connected: false, status: 'Standby' });
     getApp().globalData.connectedRobot = null;
-    wx.showToast({ title: 'Disconnected', icon: 'none' });
+    wx.showToast({ title: 'Demo: Disconnected', icon: 'none' });
   },
 
   handleAction(e) {
     const action = e.currentTarget.dataset.action;
+    const toyName = this.data.robotName;
     const messages = {
-      Up: 'Heading up',
-      Down: 'Heading down',
-      Left: 'Turning left',
-      Right: 'Turning right',
-      STOP: 'Safety stop engaged',
-      Auto: 'Auto mode queued',
-      Voice: 'Voice command queued',
-      Lights: 'Lighting pattern updated',
-      Return: 'Return to base queued'
+      Up: `Demo: ${toyName} moves forward`,
+      Down: `Demo: ${toyName} moves backward`,
+      Left: `Demo: ${toyName} turns left`,
+      Right: `Demo: ${toyName} turns right`,
+      STOP: 'Safety STOP activated',
+      Auto: `Demo: Auto play mode on ${toyName}`,
+      Voice: `Demo: Voice command to ${toyName}`,
+      Lights: `Demo: ${toyName} lights updated`,
+      Return: `Demo: ${toyName} returning to base`
     };
 
-    wx.showToast({ title: messages[action] || action, icon: 'none' });
+    wx.showToast({ title: messages[action] || action, icon: 'none', duration: 1500 });
     if (action === 'STOP') {
       this.setData({ connected: false, status: 'Standby' });
     }

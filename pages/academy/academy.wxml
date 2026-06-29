@@ -1,7 +1,7 @@
 <view class="page-shell safe-bottom">
   <view class="glass-card card-padding academy-hero">
-    <text class="section-title">🎓 Robot Academy</text>
-    <text class="muted-text" style="margin-top: 12rpx; line-height: 1.6;">Learn, play, and train your smart toys</text>
+    <text class="section-title">{{academyTitle}}</text>
+    <text class="muted-text" style="margin-top: 12rpx; line-height: 1.6;">{{academySubtitle}}</text>
     <view class="badge badge-academy" style="margin-top: 18rpx;">New lessons every day</view>
   </view>
 
@@ -18,8 +18,8 @@
 
   <view class="section" style="margin-top: 28rpx;">
     <view class="card-row" style="margin-bottom: 18rpx; gap: 10rpx;">
-      <text class="section-title">Learning Path</text>
-      <button class="btn btn-secondary" bindtap="startLearning">Start Learning</button>
+      <text class="section-title">{{learningPathLabel}}</text>
+      <button class="btn btn-secondary" bindtap="startLearning">{{startLearningBtn}}</button>
     </view>
 
     <view wx:for="{{lessons}}" wx:key="id" class="academy-card glass-card card-padding" style="border-left: 6rpx solid {{item.accent}};">
