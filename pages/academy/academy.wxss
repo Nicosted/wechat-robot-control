@@ -1,0 +1,68 @@
+.academy-hero {
+  background: linear-gradient(160deg, rgba(78, 205, 196, 0.14), rgba(255, 107, 157, 0.12));
+}
+
+.section-subtitle {
+  display: block;
+  color: #94a3b8;
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.lesson-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-top: 6rpx;
+  color: #f4f7ff;
+}
+
+.today-card {
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1rpx rgba(255, 255, 255, 0.04);
+}
+
+.academy-card {
+  margin-bottom: 18rpx;
+  border-left-width: 6rpx;
+  border-left-style: solid;
+}
+
+.academy-card-top {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lesson-name {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #fff;
+}
+
+.star-score {
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  color: #ffe66d;
+}
+
+.progress-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-text {
+  color: #d9e3ff;
+  font-weight: 600;
+}
+
+.badge-academy {
+  display: inline-flex;
+  align-items: center;
+  gap: 10rpx;
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f7ff;
+  margin-top: 14rpx;
+}

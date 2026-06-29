@@ -8,6 +8,7 @@ Component({
       { pagePath: '/pages/index/index', text: 'Home', icon: 'home' },
       { pagePath: '/pages/control/control', text: 'Control', icon: 'control' },
       { pagePath: '/pages/tasks/tasks', text: 'Tasks', icon: 'tasks' },
+      { pagePath: '/pages/academy/academy', text: 'Academy', icon: 'academy' },
       { pagePath: '/pages/profile/profile', text: 'Profile', icon: 'profile' }
     ]
   },

@@ -1,0 +1,43 @@
+<view class="page-shell safe-bottom">
+  <view class="glass-card card-padding academy-hero">
+    <text class="section-title">🎓 Robot Academy</text>
+    <text class="muted-text" style="margin-top: 12rpx; line-height: 1.6;">Learn, play, and train your smart toys</text>
+    <view class="badge badge-academy" style="margin-top: 18rpx;">New lessons every day</view>
+  </view>
+
+  <view class="glass-card today-card card-padding" style="margin-top: 24rpx;">
+    <view class="card-row">
+      <view>
+        <text class="section-subtitle">{{todayLesson.title}}</text>
+        <text class="lesson-title">{{todayLesson.label}}</text>
+        <text class="muted-text">{{todayLesson.note}}</text>
+      </view>
+      <view class="badge badge-secondary">{{todayLesson.badge}}</view>
+    </view>
+  </view>
+
+  <view class="section" style="margin-top: 28rpx;">
+    <view class="card-row" style="margin-bottom: 18rpx; gap: 10rpx;">
+      <text class="section-title">Learning Path</text>
+      <button class="btn btn-secondary" bindtap="startLearning">Start Learning</button>
+    </view>
+
+    <view wx:for="{{lessons}}" wx:key="id" class="academy-card glass-card card-padding" style="border-left: 6rpx solid {{item.accent}};">
+      <view class="card-row academy-card-top">
+        <text class="lesson-name">{{item.title}}</text>
+        <text class="star-score">{{item.stars}}</text>
+      </view>
+      <text class="muted-text" style="margin-top: 12rpx;">{{item.description}}</text>
+
+      <view class="progress-summary" style="margin-top: 18rpx; gap: 10rpx;">
+        <text class="progress-text">{{item.progress}}% complete</text>
+        <view class="badge badge-secondary" style="background: {{item.accentBg}}; color: {{item.accent}};">Practice</view>
+      </view>
+      <view class="progress-bar" style="margin-top: 12rpx; background: rgba(255,255,255,0.05);">
+        <view class="progress-fill" style="width: {{item.progress}}%; background: linear-gradient(135deg, {{item.accent}}, #ffffff30);"></view>
+      </view>
+    </view>
+  </view>
+
+  <custom-tab-bar />
+</view>

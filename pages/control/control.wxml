@@ -16,31 +16,35 @@
   </view>
 
   <view class="section">
-    <view class="glass-card card-padding">
-      <view class="joystick-grid">
-        <view class="control-cell"></view>
-        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Up" bindtap="handleAction">▲</button>
-        <view class="control-cell"></view>
-
-        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Left" bindtap="handleAction">◀</button>
-        <button class="ctrl-btn stop" disabled="{{!connected}}" data-action="STOP" bindtap="handleAction">STOP</button>
-        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Right" bindtap="handleAction">▶</button>
-
-        <view class="control-cell"></view>
-        <button class="ctrl-btn direction" disabled="{{!connected}}" data-action="Down" bindtap="handleAction">▼</button>
-        <view class="control-cell"></view>
+    <view class="glass-card card-padding control-panel">
+      <view class="panel-heading" style="margin-bottom: 18rpx;">
+        <text class="section-subtitle">Control Pad</text>
+        <text class="muted-text">Precision movement for your robot or drone.</text>
       </view>
 
-      <view class="grid-3" style="margin-top: 20rpx;">
-        <button class="btn btn-secondary" data-action="Auto" bindtap="handleAction">Auto</button>
-        <button class="btn btn-secondary" data-action="Voice" bindtap="handleAction">Voice</button>
-        <button class="btn btn-secondary" data-action="Lights" bindtap="handleAction">Lights</button>
+      <view class="joystick-pad">
+        <view class="joy-row justify-center">
+          <button class="joy-btn direction joy-up" disabled="{{!connected}}" data-action="Up" bindtap="handleAction">▲</button>
+        </view>
+
+        <view class="joy-row joy-mid-row">
+          <button class="joy-btn direction joy-left" disabled="{{!connected}}" data-action="Left" bindtap="handleAction">◀</button>
+          <button class="joy-btn stop" disabled="{{!connected}}" data-action="STOP" bindtap="handleAction">STOP</button>
+          <button class="joy-btn direction joy-right" disabled="{{!connected}}" data-action="Right" bindtap="handleAction">▶</button>
+        </view>
+
+        <view class="joy-row justify-center">
+          <button class="joy-btn direction joy-down" disabled="{{!connected}}" data-action="Down" bindtap="handleAction">▼</button>
+        </view>
       </view>
 
-      <view class="grid-3" style="margin-top: 14rpx;">
-        <button class="btn btn-secondary" data-action="Return" bindtap="handleAction">Return</button>
-        <button wx:if="{{!connected}}" class="btn btn-primary" bindtap="connect">Connect</button>
-        <button wx:else class="btn btn-danger" bindtap="disconnect">Disconnect</button>
+      <view class="control-actions">
+        <button class="btn btn-secondary action-btn" data-action="Auto" bindtap="handleAction">Auto</button>
+        <button class="btn btn-secondary action-btn" data-action="Voice" bindtap="handleAction">Voice</button>
+        <button class="btn btn-secondary action-btn" data-action="Lights" bindtap="handleAction">Lights</button>
+        <button class="btn btn-secondary action-btn" data-action="Return" bindtap="handleAction">Return</button>
+        <button wx:if="{{!connected}}" class="btn btn-primary action-btn" bindtap="connect">Connect</button>
+        <button wx:else class="btn btn-danger action-btn" bindtap="disconnect">Disconnect</button>
       </view>
     </view>
   </view>
