@@ -5,12 +5,12 @@
         <text class="section-title">{{robotName}}</text>
         <text class="muted-text">{{description}}</text>
       </view>
-      <view class="badge {{connected ? 'badge-online' : 'badge-offline'}}">{{connected ? 'Connected' : 'Standby'}}</view>
+      <view class="badge {{connected ? 'badge-online' : 'badge-offline'}}">{{connected ? connectedLabel : standbyLabel}}</view>
     </view>
 
     <view class="card-row" style="gap: 12rpx; flex-wrap: wrap; margin-top: 14rpx;">
-      <view class="badge badge-battery">Battery {{battery}}%</view>
-      <view class="badge badge-xp">Mode {{mode}}</view>
+      <view class="badge badge-battery">{{batteryLabel}} {{battery}}%</view>
+      <view class="badge badge-xp">{{modeLabel}} {{mode}}</view>
       <view class="badge badge-secondary">{{accentLabel}}</view>
     </view>
   </view>
@@ -18,8 +18,8 @@
   <view class="section">
     <view class="glass-card card-padding control-panel">
       <view class="panel-heading" style="margin-bottom: 18rpx;">
-        <text class="section-subtitle">Control Pad</text>
-        <text class="muted-text">Precision movement for your robot or drone.</text>
+        <text class="section-subtitle">{{controlPadLabel}}</text>
+        <text class="muted-text">{{precisionMovementLabel}}</text>
       </view>
 
       <view class="joystick-pad">
@@ -39,12 +39,12 @@
       </view>
 
       <view class="control-actions">
-        <button class="btn btn-secondary action-btn" data-action="Auto" bindtap="handleAction">Auto</button>
-        <button class="btn btn-secondary action-btn" data-action="Voice" bindtap="handleAction">Voice</button>
-        <button class="btn btn-secondary action-btn" data-action="Lights" bindtap="handleAction">Lights</button>
-        <button class="btn btn-secondary action-btn" data-action="Return" bindtap="handleAction">Return</button>
-        <button wx:if="{{!connected}}" class="btn btn-primary action-btn" bindtap="connect">Connect</button>
-        <button wx:else class="btn btn-danger action-btn" bindtap="disconnect">Disconnect</button>
+        <button class="btn btn-secondary action-btn" data-action="Auto" bindtap="handleAction">{{autoPlayLabel}}</button>
+        <button class="btn btn-secondary action-btn" data-action="Voice" bindtap="handleAction">{{talkLabel}}</button>
+        <button class="btn btn-secondary action-btn" data-action="Lights" bindtap="handleAction">{{glowLabel}}</button>
+        <button class="btn btn-secondary action-btn" data-action="Return" bindtap="handleAction">{{comeBackLabel}}</button>
+        <button wx:if="{{!connected}}" class="btn btn-primary action-btn" bindtap="connect">{{connectLabel}}</button>
+        <button wx:else class="btn btn-danger action-btn" bindtap="disconnect">{{disconnectLabel}}</button>
       </view>
     </view>
   </view>

@@ -2,7 +2,7 @@ const translations = {
   en: {
     // App
     'smartToyHub': 'Smart Toy Hub',
-    'controlTrainPlay': 'Control, train, and play with all your AI toys.',
+    'controlTrainPlay': 'One app to play with all your smart toys.',
     'chooseYourBuddy': 'Choose your toy buddy',
     'playNow': 'Play now',
     'demoMode': 'Demo Mode',
@@ -77,6 +77,21 @@ const translations = {
     'parentalLock': 'Parental Lock',
     'support': 'Support',
     'deviceSafety': 'Device Safety',
+    'registeredDevices': 'Registered Toys',
+    'preferences': 'Preferences',
+    'missionsDone': 'Missions Done',
+    'totalXp': 'Total XP',
+    'favoriteBuddyValue': 'NanoPet',
+    'levelValue': 'Level 7',
+    'enabled': 'Enabled',
+    'on': 'On',
+    'chat': 'Chat',
+    'languageUpdated': 'Language updated',
+    'todayLesson': 'Today’s lesson',
+    'safeRoutineLesson': 'Spark a safe toy routine',
+    'safeRoutineNote': 'Learn how your smart toy listens and stops on command.',
+    'ready': 'Ready',
+    'newLessonsEveryDay': 'New lessons every day',
     'english': 'English',
     'spanish': 'Español',
     'portuguese': 'Português',
@@ -84,7 +99,7 @@ const translations = {
   },
   es: {
     'smartToyHub': 'Centro de Juguetes Inteligentes',
-    'controlTrainPlay': 'Controla, entrena y juega con todos tus juguetes IA.',
+    'controlTrainPlay': 'Una app para jugar con todos tus juguetes inteligentes.',
     'chooseYourBuddy': 'Elige tu compañero de juguete',
     'playNow': 'Jugar ahora',
     'demoMode': 'Modo Demo',
@@ -153,6 +168,21 @@ const translations = {
     'parentalLock': 'Control Parental',
     'support': 'Soporte',
     'deviceSafety': 'Seguridad del Dispositivo',
+    'registeredDevices': 'Juguetes Registrados',
+    'preferences': 'Preferencias',
+    'missionsDone': 'Misiones Hechas',
+    'totalXp': 'XP Total',
+    'favoriteBuddyValue': 'NanoPet',
+    'levelValue': 'Nivel 7',
+    'enabled': 'Activado',
+    'on': 'Activo',
+    'chat': 'Chat',
+    'languageUpdated': 'Idioma actualizado',
+    'todayLesson': 'Lección de hoy',
+    'safeRoutineLesson': 'Crea una rutina segura de juguete',
+    'safeRoutineNote': 'Aprende cómo tu juguete inteligente escucha y se detiene al recibir una orden.',
+    'ready': 'Listo',
+    'newLessonsEveryDay': 'Nuevas lecciones cada día',
     'english': 'English',
     'spanish': 'Español',
     'portuguese': 'Português',
@@ -160,7 +190,7 @@ const translations = {
   },
   pt: {
     'smartToyHub': 'Centro de Brinquedos Inteligentes',
-    'controlTrainPlay': 'Controle, treine e brinque com todos os seus brinquedos IA.',
+    'controlTrainPlay': 'Um app para brincar com todos os seus brinquedos inteligentes.',
     'chooseYourBuddy': 'Escolha seu companheiro de brinquedo',
     'playNow': 'Jogar agora',
     'demoMode': 'Modo Demo',
@@ -229,6 +259,21 @@ const translations = {
     'parentalLock': 'Controle Parental',
     'support': 'Suporte',
     'deviceSafety': 'Segurança do Dispositivo',
+    'registeredDevices': 'Brinquedos Registrados',
+    'preferences': 'Preferências',
+    'missionsDone': 'Missões Feitas',
+    'totalXp': 'XP Total',
+    'favoriteBuddyValue': 'NanoPet',
+    'levelValue': 'Nível 7',
+    'enabled': 'Ativado',
+    'on': 'Ligado',
+    'chat': 'Chat',
+    'languageUpdated': 'Idioma atualizado',
+    'todayLesson': 'Lição de hoje',
+    'safeRoutineLesson': 'Crie uma rotina segura de brinquedo',
+    'safeRoutineNote': 'Aprenda como seu brinquedo inteligente escuta e para ao comando.',
+    'ready': 'Pronto',
+    'newLessonsEveryDay': 'Novas lições todos os dias',
     'english': 'English',
     'spanish': 'Español',
     'portuguese': 'Português',
@@ -236,7 +281,7 @@ const translations = {
   },
   zh: {
     'smartToyHub': '智能玩具中心',
-    'controlTrainPlay': '控制、训练和玩耍您的所有AI玩具。',
+    'controlTrainPlay': '一个应用，畅玩所有智能玩具。',
     'chooseYourBuddy': '选择您的玩具伙伴',
     'playNow': '立即玩耍',
     'demoMode': '演示模式',
@@ -305,6 +350,21 @@ const translations = {
     'parentalLock': '家长控制',
     'support': '支持',
     'deviceSafety': '设备安全',
+    'registeredDevices': '已注册玩具',
+    'preferences': '偏好设置',
+    'missionsDone': '已完成任务',
+    'totalXp': '总 XP',
+    'favoriteBuddyValue': 'NanoPet',
+    'levelValue': '7 级',
+    'enabled': '已启用',
+    'on': '开启',
+    'chat': '聊天',
+    'languageUpdated': '语言已更新',
+    'todayLesson': '今日课程',
+    'safeRoutineLesson': '点亮安全玩具流程',
+    'safeRoutineNote': '学习智能玩具如何听从指令并停止。',
+    'ready': '准备好',
+    'newLessonsEveryDay': '每天都有新课程',
     'english': 'English',
     'spanish': 'Español',
     'portuguese': 'Português',
@@ -322,6 +382,10 @@ function setLanguage(language) {
   if (translations[language]) {
     currentLanguage = language;
     wx.setStorageSync('language', language);
+    const app = typeof getApp === 'function' ? getApp() : null;
+    if (app && app.globalData) {
+      app.globalData.language = language;
+    }
     return true;
   }
   return false;
@@ -329,7 +393,16 @@ function setLanguage(language) {
 
 function t(key) {
   const dict = translations[currentLanguage] || translations.en;
-  return dict[key] || key;
+  return dict[key] || translations.en[key] || key;
+}
+
+function getLanguageOptions() {
+  return [
+    { code: 'en', name: t('english') },
+    { code: 'es', name: t('spanish') },
+    { code: 'pt', name: t('portuguese') },
+    { code: 'zh', name: t('chineseSimplified') }
+  ];
 }
 
 function initLanguage() {
@@ -343,5 +416,6 @@ module.exports = {
   getLanguage,
   setLanguage,
   t,
+  getLanguageOptions,
   initLanguage
 };

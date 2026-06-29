@@ -10,6 +10,19 @@ Page({
     safetyModeLabel: '',
     settingsLabel: '',
     languageLabel: '',
+    preferencesLabel: '',
+    registeredDevicesLabel: '',
+    parentalLockLabel: '',
+    supportLabel: '',
+    deviceSafetyLabel: '',
+    missionsDoneLabel: '',
+    totalXpLabel: '',
+    levelLabel: '',
+    favoriteBuddyValue: '',
+    enabledLabel: '',
+    onLabel: '',
+    chatLabel: '',
+    avatarEmoji: '🌟',
     userInfo: {
       nickName: 'Toy Trainer',
       avatarUrl: ''
@@ -22,20 +35,30 @@ Page({
     },
     devices: [],
     currentLanguage: 'en',
-    languages: [
-      { code: 'en', name: 'English' },
-      { code: 'es', name: 'Español' },
-      { code: 'pt', name: 'Português' },
-      { code: 'zh', name: '中文' }
-    ]
+    selectedLanguageName: 'English',
+    languages: []
   },
 
   onLoad() {
-    this.updateLanguage();
+    this._hydrateProfile();
+  },
+
+  onShow() {
+    this._hydrateProfile();
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().updateSelected();
+    }
+  },
+
+  _hydrateProfile() {
     const app = getApp();
     const devices = mockDevices;
     const totalXp = devices.reduce((sum, device) => sum + device.xp, 0);
     const totalStars = devices.reduce((sum, device) => sum + device.stars, 0);
+    const currentLanguage = i18n.getLanguage();
+    const languages = i18n.getLanguageOptions();
+    const selectedLanguage = languages.find((language) => language.code === currentLanguage) || languages[0];
+
     this.setData({
       userInfo: app.globalData.userInfo || { nickName: 'Toy Trainer', avatarUrl: '' },
       devices,
@@ -45,11 +68,10 @@ Page({
         totalXp,
         stars: totalStars
       },
-      currentLanguage: i18n.getLanguage()
+      currentLanguage,
+      selectedLanguageName: selectedLanguage.name,
+      languages
     });
-  },
-
-  onShow() {
     this.updateLanguage();
   },
 
@@ -61,17 +83,41 @@ Page({
       favoriteBuddyLabel: i18n.t('favoriteBody'),
       safetyModeLabel: i18n.t('safetyModeEnabled'),
       settingsLabel: i18n.t('settings'),
-      languageLabel: i18n.t('language')
+      languageLabel: i18n.t('language'),
+      preferencesLabel: i18n.t('preferences'),
+      registeredDevicesLabel: i18n.t('registeredDevices'),
+      parentalLockLabel: i18n.t('parentalLock'),
+      supportLabel: i18n.t('support'),
+      deviceSafetyLabel: i18n.t('deviceSafety'),
+      missionsDoneLabel: i18n.t('missionsDone'),
+      totalXpLabel: i18n.t('totalXp'),
+      levelLabel: i18n.t('levelValue'),
+      favoriteBuddyValue: i18n.t('favoriteBuddyValue'),
+      enabledLabel: i18n.t('enabled'),
+      onLabel: i18n.t('on'),
+      chatLabel: i18n.t('chat')
     });
   },
 
   setLanguage(e) {
     const { code } = e.currentTarget.dataset;
+    if (!code || code === i18n.getLanguage()) {
+      return;
+    }
+
     i18n.setLanguage(code);
-    const app = getApp();
-    app.globalData.language = code;
     this.setData({ currentLanguage: code });
-    this.updateLanguage();
-    wx.showToast({ title: 'Language updated', icon: 'success' });
+    this._refreshVisiblePages();
+    this._hydrateProfile();
+    wx.showToast({ title: i18n.t('languageUpdated'), icon: 'success' });
+  },
+
+  _refreshVisiblePages() {
+    const pages = getCurrentPages();
+    pages.forEach((page) => {
+      if (page && typeof page.updateLanguage === 'function') {
+        page.updateLanguage();
+      }
+    });
   }
 });

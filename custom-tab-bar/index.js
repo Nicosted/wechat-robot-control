@@ -13,25 +13,32 @@ Component({
     ]
   },
   attached() {
-    this._setSelectedTab();
+    this.updateSelected();
+  },
+  pageLifetimes: {
+    show() {
+      this.updateSelected();
+    }
   },
   methods: {
-    _setSelectedTab() {
+    updateSelected() {
       const pages = getCurrentPages();
-      const currentPage = pages[pages.length - 1];
-      const route = currentPage ? currentPage.route : '';
+      const currentPage = pages[pages.length - 1] || {};
+      const route = currentPage.route || currentPage.__route__ || '';
+      const normalizedRoute = `/${route}`.replace(/\/+/g, '/').replace(/\/$/, '');
       const index = this.data.tabList.findIndex((tab) => {
-        const tabRoute = tab.pagePath.replace(/^\//, '');
-        return tabRoute === route;
+        const tabRoute = `/${tab.pagePath}`.replace(/\/+/g, '/').replace(/\/$/, '');
+        return tabRoute === normalizedRoute;
       });
 
-      this.setData({
-        selected: index >= 0 ? index : 0
-      });
+      if (index >= 0 && this.data.selected !== index) {
+        this.setData({ selected: index });
+      } else if (index < 0 && this.data.selected !== 0) {
+        this.setData({ selected: 0 });
+      }
     },
     switchTab(e) {
       const { index, pagePath } = e.currentTarget.dataset;
-      console.log('custom tab switch', { index, pagePath });
 
       if (this.data.selected === index) {
         return;

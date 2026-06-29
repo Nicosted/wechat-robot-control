@@ -2,7 +2,7 @@
   <view class="glass-card card-padding academy-hero">
     <text class="section-title">{{academyTitle}}</text>
     <text class="muted-text" style="margin-top: 12rpx; line-height: 1.6;">{{academySubtitle}}</text>
-    <view class="badge badge-academy" style="margin-top: 18rpx;">New lessons every day</view>
+    <view class="badge badge-academy" style="margin-top: 18rpx;">{{newLessonsLabel}}</view>
   </view>
 
   <view class="glass-card today-card card-padding" style="margin-top: 24rpx;">
@@ -30,8 +30,8 @@
       <text class="muted-text" style="margin-top: 12rpx;">{{item.description}}</text>
 
       <view class="progress-summary" style="margin-top: 18rpx; gap: 10rpx;">
-        <text class="progress-text">{{item.progress}}% complete</text>
-        <view class="badge badge-secondary" style="background: {{item.accentBg}}; color: {{item.accent}};">Practice</view>
+        <text class="progress-text">{{item.progress}}% {{completeLabel}}</text>
+        <view class="badge badge-secondary" style="background: {{item.accentBg}}; color: {{item.accent}};">{{practiceLabel}}</view>
       </view>
       <view class="progress-bar" style="margin-top: 12rpx; background: rgba(255,255,255,0.05);">
         <view class="progress-fill" style="width: {{item.progress}}%; background: linear-gradient(135deg, {{item.accent}}, #ffffff30);"></view>

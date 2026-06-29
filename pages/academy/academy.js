@@ -1,5 +1,14 @@
+const i18n = require('../../utils/i18n');
+
 Page({
   data: {
+    academyTitle: '',
+    academySubtitle: '',
+    learningPathLabel: '',
+    startLearningBtn: '',
+    newLessonsLabel: '',
+    completeLabel: '',
+    practiceLabel: '',
     lessons: [
       {
         id: 1,
@@ -46,9 +55,47 @@ Page({
     }
   },
 
+  onLoad() {
+    this.updateLanguage();
+  },
+
+  onShow() {
+    this.updateLanguage();
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().updateSelected();
+    }
+  },
+
+  updateLanguage() {
+    this.setData({
+      academyTitle: i18n.t('robotAcademy'),
+      academySubtitle: i18n.t('learnPlayTrain'),
+      learningPathLabel: i18n.t('learningPath'),
+      startLearningBtn: i18n.t('startLearning'),
+      newLessonsLabel: i18n.t('newLessonsEveryDay'),
+      completeLabel: i18n.t('complete'),
+      practiceLabel: i18n.t('practice'),
+      todayLesson: {
+        title: i18n.t('todayLesson'),
+        label: i18n.t('safeRoutineLesson'),
+        note: i18n.t('safeRoutineNote'),
+        badge: i18n.t('ready')
+      },
+      lessons: this.data.lessons.map((lesson, index) => ({
+        ...lesson,
+        title: [
+          `🤖 ${i18n.t('robotBasics')}`,
+          `🎮 ${i18n.t('safeControl')}`,
+          `💡 ${i18n.t('simpleCoding')}`,
+          `🏆 ${i18n.t('challenges')}`
+        ][index] || lesson.title
+      }))
+    });
+  },
+
   startLearning() {
     wx.showToast({
-      title: 'Start Learning!',
+      title: this.data.startLearningBtn || 'Start Learning',
       icon: 'success',
       duration: 1200
     });

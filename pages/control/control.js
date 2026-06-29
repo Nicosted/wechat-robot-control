@@ -12,15 +12,49 @@ Page({
     description: '',
     status: 'Standby',
     accentLabel: 'Companion',
-    actions: []
+    actions: [],
+    connectedLabel: '',
+    standbyLabel: '',
+    batteryLabel: '',
+    modeLabel: '',
+    controlPadLabel: '',
+    precisionMovementLabel: '',
+    autoPlayLabel: '',
+    talkLabel: '',
+    glowLabel: '',
+    comeBackLabel: '',
+    connectLabel: '',
+    disconnectLabel: ''
   },
 
   onLoad(options) {
+    this.updateLanguage();
     this._syncDevice(options.id);
   },
 
   onShow() {
+    this.updateLanguage();
     this._syncDevice();
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().updateSelected();
+    }
+  },
+
+  updateLanguage() {
+    this.setData({
+      connectedLabel: i18n.t('connected'),
+      standbyLabel: i18n.t('standby'),
+      batteryLabel: i18n.t('battery'),
+      modeLabel: i18n.t('playMode'),
+      controlPadLabel: i18n.t('controlPad'),
+      precisionMovementLabel: i18n.t('precisionMovement'),
+      autoPlayLabel: i18n.t('autoPlay'),
+      talkLabel: i18n.t('talk'),
+      glowLabel: i18n.t('glow'),
+      comeBackLabel: i18n.t('comeBack'),
+      connectLabel: i18n.t('connect'),
+      disconnectLabel: i18n.t('disconnect')
+    });
   },
 
   _syncDevice(id) {
