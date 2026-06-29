@@ -80,7 +80,6 @@ Page({
     app.globalData.selectedDeviceId = id;
     wx.setStorageSync('selectedDeviceId', id);
     this.setData({ selectedDeviceId: id });
-    wx.switchTab({ url: '/pages/control/control' });
   },
 
   goToControl() {

@@ -1,47 +1,27 @@
-<view class="page-shell compact-page safe-bottom fit-screen">
-  <view class="glass-card compact-card academy-hero">
+<view class="page-shell compact-page safe-bottom app-screen">
+  <view class="hero-simple academy-hero">
     <view class="card-row">
       <view>
         <text class="section-title">{{academyTitle}}</text>
         <text class="muted-text academy-copy">{{academySubtitle}}</text>
       </view>
-      <view class="badge badge-academy">{{newLessonsLabel}}</view>
     </view>
   </view>
 
-  <view class="glass-card compact-card today-card">
-    <view class="card-row">
-      <view>
-        <text class="section-subtitle">{{todayLesson.title}}</text>
-        <text class="lesson-title">{{todayLesson.label}}</text>
-      </view>
-      <view class="badge badge-secondary">{{todayLesson.badge}}</view>
-    </view>
-  </view>
-
-  <view class="section compact-section">
-    <view class="card-row path-head">
-      <text class="section-title">{{learningPathLabel}}</text>
-      <button class="btn btn-secondary" bindtap="startLearning">{{startLearningBtn}}</button>
-    </view>
-
+  <view class="section academy-menu">
     <view class="academy-grid">
-      <view wx:for="{{lessons}}" wx:key="id" class="academy-card glass-card compact-card" style="border-top: 5rpx solid {{item.accent}};">
+      <view wx:for="{{lessons}}" wx:key="id" class="simple-card academy-card">
         <view class="academy-card-top">
           <text class="lesson-emoji">{{item.emoji}}</text>
           <text class="star-score">{{item.stars}}</text>
         </view>
         <text class="lesson-name">{{item.title}}</text>
-        <text class="muted-text lesson-note">{{item.description}}</text>
         <view class="progress-summary">
           <text class="progress-text">{{item.progress}}%</text>
-          <text class="practice-text">{{practiceLabel}}</text>
-        </view>
-        <view class="progress-bar academy-progress">
-          <view class="progress-fill" style="width: {{item.progress}}%; background: linear-gradient(135deg, {{item.accent}}, #ffffff30);"></view>
         </view>
       </view>
     </view>
+    <button class="btn btn-primary big-play-button academy-cta" bindtap="startLearning">{{startLearningBtn}}</button>
   </view>
 
   <custom-tab-bar />

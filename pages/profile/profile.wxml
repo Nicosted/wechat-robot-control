@@ -1,11 +1,11 @@
-<view class="page-shell compact-page safe-bottom fit-screen">
-  <view class="glass-card compact-card profile-card">
+<view class="page-shell compact-page safe-bottom app-screen">
+  <view class="hero-simple profile-card">
     <view class="card-row">
       <view class="profile-header">
         <view class="avatar">{{avatarEmoji}}</view>
         <view>
           <text class="section-title">{{toyTrainerLabel}}</text>
-          <text class="muted-text">{{levelLabel}} · {{stats.stars}} {{starsLabel}}</text>
+          <text class="muted-text">{{levelLabel}} · {{stats.totalXp}} {{totalXpLabel}}</text>
         </view>
       </view>
       <view class="badge badge-online">{{safetyModeLabel}}</view>
@@ -13,46 +13,34 @@
   </view>
 
   <view class="stats-grid">
-    <view class="glass-card stat-card">
+    <view class="simple-card stat-card">
       <text class="stat-value">{{stats.robotsOwned}}</text>
       <text class="stat-label">{{toysLabel}}</text>
     </view>
-    <view class="glass-card stat-card">
+    <view class="simple-card stat-card">
       <text class="stat-value">{{stats.tasksCompleted}}</text>
       <text class="stat-label">{{missionsDoneLabel}}</text>
     </view>
-    <view class="glass-card stat-card">
-      <text class="stat-value">{{stats.totalXp}}</text>
-      <text class="stat-label">{{totalXpLabel}}</text>
+    <view class="simple-card stat-card">
+      <text class="stat-value">{{stats.stars}}</text>
+      <text class="stat-label">{{starsLabel}}</text>
     </view>
   </view>
 
-  <view class="glass-card compact-card profile-section">
-    <view class="section-title mini-heading">{{registeredDevicesLabel}}</view>
-    <view class="device-list">
-      <view wx:for="{{devices}}" wx:key="id" class="device-row">
-        <view class="device-main">
-          <text class="device-emoji">{{item.emoji}}</text>
-          <view>
-            <text class="device-name">{{item.name}}</text>
-            <text class="muted-text device-mood">{{item.localizedStatus}} · {{item.localizedMood}}</text>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-
-  <view class="glass-card compact-card profile-section">
+  <view class="simple-card profile-section language-panel">
     <text class="section-title mini-heading">{{preferencesLabel}}</text>
     <view class="setting-row">
       <text>{{languageLabel}}</text>
       <text class="muted-text">{{selectedLanguageName}}</text>
     </view>
     <view class="language-options">
-      <view wx:for="{{languages}}" wx:key="code" class="lang-pill {{currentLanguage === item.code ? 'active' : ''}}" data-code="{{item.code}}" bindtap="setLanguage">
+      <view wx:for="{{languages}}" wx:key="code" class="language-chip lang-pill {{currentLanguage === item.code ? 'active' : ''}}" data-code="{{item.code}}" bindtap="setLanguage">
         <text>{{item.name}}</text>
       </view>
     </view>
+  </view>
+
+  <view class="simple-card profile-section settings-panel">
     <view class="setting-row">
       <text>{{parentalLockLabel}}</text>
       <text class="muted-text">{{enabledLabel}}</text>

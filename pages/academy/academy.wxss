@@ -1,51 +1,30 @@
 .academy-hero {
-  background: linear-gradient(150deg, rgba(78, 205, 196, 0.14), rgba(255, 107, 157, 0.1));
+  background: linear-gradient(135deg, rgba(124, 93, 255, 0.16), rgba(78, 205, 196, 0.13));
 }
 
 .academy-copy {
   display: block;
-  margin-top: 6rpx;
-  line-height: 1.35;
-  font-size: 22rpx;
+  margin-top: 4rpx;
+  line-height: 1.28;
+  font-size: 23rpx;
 }
 
-.section-subtitle {
-  display: block;
-  color: #94a3b8;
-  font-size: 21rpx;
-  margin-bottom: 4rpx;
-}
-
-.lesson-title {
-  display: block;
-  font-size: 24rpx;
-  font-weight: 800;
-  color: #f4f7ff;
-}
-
-.today-card {
-  margin-top: 12rpx;
-}
-
-.path-head {
-  margin-bottom: 12rpx;
-}
-
-.path-head .btn {
-  min-height: 56rpx;
-  font-size: 21rpx;
-  padding: 8rpx 12rpx;
+.academy-menu {
+  margin-top: 16rpx;
 }
 
 .academy-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10rpx;
+  gap: 12rpx;
 }
 
 .academy-card {
   flex: 1 1 42%;
-  min-width: 240rpx;
+  min-width: 230rpx;
+  min-height: 170rpx;
+  padding: 18rpx;
+  box-sizing: border-box;
 }
 
 .academy-card-top {
@@ -55,55 +34,34 @@
 }
 
 .lesson-emoji {
-  font-size: 30rpx;
+  font-size: 42rpx;
 }
 
 .lesson-name {
   display: block;
-  margin-top: 8rpx;
-  font-size: 23rpx;
-  font-weight: 800;
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  font-weight: 900;
   color: #fff;
-}
-
-.lesson-note {
-  display: block;
-  margin-top: 4rpx;
-  font-size: 20rpx;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .star-score {
   font-size: 20rpx;
-  color: #ffe66d;
+  color: #ffdf6a;
 }
 
 .progress-summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-top: 10rpx;
 }
 
-.progress-text,
-.practice-text {
-  color: #d9e3ff;
-  font-size: 20rpx;
-  font-weight: 700;
+.progress-text {
+  color: #cfe0ff;
+  font-size: 22rpx;
+  font-weight: 900;
 }
 
-.academy-progress {
-  height: 9rpx;
-  margin-top: 6rpx;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.badge-academy {
-  flex: none;
-  background: rgba(255, 255, 255, 0.08);
-  color: #f4f7ff;
+.academy-cta {
+  margin-top: 14rpx;
 }
 
 @media screen and (min-width: 720px) {

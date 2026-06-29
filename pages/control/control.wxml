@@ -1,27 +1,23 @@
-<view class="page-shell compact-page safe-bottom fit-screen">
-  <view class="glass-card compact-card control-summary">
-    <view class="toy-row">
+<view class="page-shell compact-page safe-bottom app-screen">
+  <view class="simple-card control-summary">
+    <view class="control-toy">
       <text class="control-emoji">{{robotEmoji}}</text>
       <view class="summary-main">
         <view class="summary-top">
           <text class="section-title">{{robotName}}</text>
-          <view class="badge {{connected ? 'badge-online' : 'badge-offline'}}">{{connected ? connectedLabel : standbyLabel}}</view>
+          <text class="mini-chip {{connected ? 'is-online' : 'is-offline'}}">{{connected ? connectedLabel : standbyLabel}}</text>
         </view>
         <view class="summary-stats">
-          <text>{{batteryLabel}} {{battery}}%</text>
-          <text>{{energyLabel}} {{energy}}%</text>
-          <text>{{moodLabel}} {{mood}}</text>
+          <text>{{mood}}</text>
+          <text>{{battery}}%</text>
+          <text>{{energy}}%</text>
         </view>
       </view>
     </view>
   </view>
 
-  <view class="section compact-section">
-    <view class="glass-card compact-card control-panel">
-      <view class="panel-heading">
-        <text class="section-subtitle">{{controlPadLabel}}</text>
-      </view>
-
+  <view class="section play-controller">
+    <view class="simple-card control-panel">
       <view class="joystick-pad">
         <view class="joy-row justify-center">
           <button class="joy-btn direction joy-up" disabled="{{!connected}}" data-action="Up" bindtap="handleAction">▲</button>
@@ -39,10 +35,10 @@
       </view>
 
       <view class="control-actions">
-        <button class="btn btn-secondary action-btn" data-action="Auto" bindtap="handleAction">{{autoPlayLabel}}</button>
         <button class="btn btn-secondary action-btn" data-action="Voice" bindtap="handleAction">{{talkLabel}}</button>
         <button class="btn btn-secondary action-btn" data-action="Lights" bindtap="handleAction">{{glowLabel}}</button>
         <button class="btn btn-secondary action-btn" data-action="Return" bindtap="handleAction">{{comeBackLabel}}</button>
+        <button class="btn btn-secondary action-btn" data-action="Auto" bindtap="handleAction">{{autoPlayLabel}}</button>
         <button class="btn btn-danger action-btn" data-action="End" bindtap="handleAction">{{endPlayLabel}}</button>
         <button wx:if="{{!connected}}" class="btn btn-primary action-btn" bindtap="connect">{{connectLabel}}</button>
       </view>

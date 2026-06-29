@@ -73,7 +73,7 @@ const translations = {
     
     // Academy
     'robotAcademy': 'Robot Academy',
-    'learnPlayTrain': 'Learn how your smart toys think, move, and stay safe.',
+    'learnPlayTrain': 'Learn with your smart toys.',
     'learningPath': 'Learning Path',
     'startLearning': 'Start Learning',
     'robotBasics': 'Robot Basics',
@@ -186,7 +186,7 @@ const translations = {
     'academyMission': 'Lección de academia',
     
     'robotAcademy': 'Academia de Robots',
-    'learnPlayTrain': 'Aprende cómo piensan, se mueven y permanecen seguros tus juguetes inteligentes.',
+    'learnPlayTrain': 'Aprende con tus juguetes inteligentes.',
     'learningPath': 'Ruta de Aprendizaje',
     'startLearning': 'Comenzar a Aprender',
     'robotBasics': 'Conceptos Básicos de Robots',
@@ -298,7 +298,7 @@ const translations = {
     'academyMission': 'Lição da academia',
     
     'robotAcademy': 'Academia de Robôs',
-    'learnPlayTrain': 'Aprenda como seus brinquedos inteligentes pensam, se movem e permanecem seguros.',
+    'learnPlayTrain': 'Aprenda com seus brinquedos inteligentes.',
     'learningPath': 'Caminho de Aprendizado',
     'startLearning': 'Começar a Aprender',
     'robotBasics': 'Conceitos Básicos de Robôs',
@@ -410,7 +410,7 @@ const translations = {
     'academyMission': '学院课程',
     
     'robotAcademy': '机器人学院',
-    'learnPlayTrain': '了解您的智能玩具如何思考、移动和保持安全。',
+    'learnPlayTrain': '和智能玩具一起学习。',
     'learningPath': '学习路径',
     'startLearning': '开始学习',
     'robotBasics': '机器人基础',

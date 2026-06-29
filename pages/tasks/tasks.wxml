@@ -1,17 +1,14 @@
-<view class="page-shell compact-page safe-bottom fit-screen">
-  <view class="glass-card compact-card missions-head">
-    <view class="card-row">
-      <text class="section-title">{{sectionTitle}}</text>
-      <view class="badge badge-xp">{{tasks.length}} {{missionsLabel}}</view>
-    </view>
-    <text class="muted-text mission-copy">{{missionSubtitle}}</text>
+<view class="page-shell compact-page safe-bottom app-screen">
+  <view class="hero-simple missions-head">
+    <text class="section-title">{{sectionTitle}}</text>
+    <text class="mini-chip">{{tasks.length}} {{missionsLabel}}</text>
   </view>
 
   <view class="task-list">
     <view
       wx:for="{{tasks}}"
       wx:key="id"
-      class="glass-card task-card {{item.done ? 'done' : ''}}"
+      class="simple-card task-card {{item.done ? 'done' : ''}}"
       data-id="{{item.id}}"
       bindtap="toggleTask"
     >
@@ -20,14 +17,10 @@
         <view class="task-main">
           <text class="task-title">{{item.title}}</text>
           <view class="task-meta">
-            <text>{{item.reward}} {{xpLabel}}</text>
             <text>{{item.stars}} {{starsLabel}}</text>
           </view>
         </view>
-        <view class="badge {{item.done ? 'badge-online' : 'badge-battery'}}">{{item.done ? completedLabel : pendingLabel}}</view>
-      </view>
-      <view class="progress-bar mission-progress">
-        <view class="progress-fill" style="width: {{item.progressWidth}}"></view>
+        <view class="mini-chip {{item.done ? 'done-chip' : ''}}">{{item.done ? completedLabel : pendingLabel}}</view>
       </view>
     </view>
   </view>
