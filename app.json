@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/control/control",
     "pages/tasks/tasks",
+    "pages/academy/academy",
     "pages/profile/profile"
   ],
   "window": {
@@ -29,6 +30,10 @@
       {
         "pagePath": "pages/tasks/tasks",
         "text": "Tasks"
+      },
+      {
+        "pagePath": "pages/academy/academy",
+        "text": "Academy"
       },
       {
         "pagePath": "pages/profile/profile",

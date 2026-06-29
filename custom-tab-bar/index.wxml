@@ -27,6 +27,13 @@
           <path d="M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Z" />
         </svg>
       </block>
+      <block wx:elif="{{item.icon === 'academy'}}">
+        <svg viewBox="0 0 24 24" class="icon-svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 7l9-4 9 4v10l-9 4-9-4V7z" />
+          <path d="M12 3v18" />
+          <path d="M16 7.5l-4 2-4-2" />
+        </svg>
+      </block>
       <block wx:elif="{{item.icon === 'profile'}}">
         <svg viewBox="0 0 24 24" class="icon-svg" xmlns="http://www.w3.org/2000/svg">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
